@@ -1,0 +1,73 @@
+export const COLORS = {
+  highlight: '#0b47b1',
+  loadingBg: '#000000',
+  loginBg: '#6fa1ea',
+  loginTop: '#1e4fb8',
+  orangeAccent: '#e75a25',
+  progressBar: '#2b66d6',
+  startGreen: '#2aa01b',
+  taskbarBlue: '#103b9a',
+  white: '#FFFFFF',
+};
+
+export const ASSETS = {
+  avatar: '/avatar.png',
+  soundLogin: 'https://www.myinstants.com/media/sounds/windows-xp-startup.mp3',
+  wallpaper:
+    'https://preview.redd.it/microsoft-design-team-shared-an-updated-4k-version-of-the-v0-9owhc7wuc65b1.jpg?auto=webp&s=8981649e0186af9fc55b8be44724c9779d9793c0',
+  windowsLogo:
+    'https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_XP_icon.png',
+};
+
+export const XP_ICONS = {
+  adobeAe: 'https://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Adobe-After-Effects-icon.png',
+  adobeAi: 'https://mitchivin.com/assets/gui/start-menu/vanity-apps/illustrator.webp',
+  adobeCc: 'https://mitchivin.com/assets/gui/start-menu/vanity-apps/creative-cloud.webp',
+  adobeId: 'https://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Adobe-InDesign-icon.png',
+  adobePr: 'https://mitchivin.com/assets/gui/start-menu/vanity-apps/premiere.webp',
+  adobePs: 'https://mitchivin.com/assets/gui/start-menu/vanity-apps/photoshop.webp',
+  aboutMe: 'https://i.ibb.co/DHgWTDrx/Tour-XP.png',
+  androidStudio: 'https://cdn.simpleicons.org/androidstudio/3DDC84',
+  antigravity: 'https://pngdownloads.wordpress.com/wp-content/uploads/2025/11/google-antigravity-logo-icon-png.jpg',
+  blender: 'https://icons.iconarchive.com/icons/papirus-team/papirus-apps/512/blender-icon.png',
+  calc: 'https://icons.iconarchive.com/icons/tetigi/windows-xp/256/Calculator-icon.png',
+  chatgpt: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg',
+  claude: 'https://upload.wikimedia.org/wikipedia/commons/1/14/Claude_AI_logo.svg',
+  cmd: 'https://mitchivin.com/assets/gui/start-menu/cmd.webp',
+  contact: 'https://mitchivin.com/assets/gui/desktop/contact.webp',
+  copilot: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/GitHub_Copilot_logo.svg',
+  davinci: 'https://mitchivin.com/assets/gui/start-menu/vanity-apps/davinci.webp',
+  docker: 'https://icons.iconarchive.com/icons/papirus-team/papirus-apps/512/docker-icon.png',
+  figma: 'https://cdn.sanity.io/images/599r6htc/regionalized/46a76c802176eb17b04e12108de7e7e0f3736dc6-1024x1024.png',
+  gemini: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gemini-color.png',
+  git: 'https://icons.iconarchive.com/icons/papirus-team/papirus-apps/512/git-icon.png',
+  github: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/GitHub_Invertocat_Logo.svg',
+  imageViewer: 'https://mitchivin.com/assets/gui/start-menu/photos.webp',
+  instagram: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/240px-Instagram_icon.png',
+  linkedin: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png',
+  logoff: 'https://i.ibb.co/Q7kDQdW4/Logout.png',
+  mediaPlayer: 'https://mitchivin.com/assets/gui/start-menu/mediaPlayer.webp',
+  msn: 'https://icons.iconarchive.com/icons/tetigi/windows-xp/256/MSN-Messenger-icon.png',
+  notepad: 'https://icons.iconarchive.com/icons/tetigi/windows-xp/256/Notepad-icon.png',
+  obs: 'https://icons.iconarchive.com/icons/papirus-team/papirus-apps/512/obs-studio-icon.png',
+  paint: 'https://mitchivin.com/assets/gui/start-menu/paint.webp',
+  projects: '/edge-custom.webp',
+  recent: 'https://icons.iconarchive.com/icons/dtafalonso/yosemite-flat/512/Folder-icon.png',
+  restart: 'https://i.ibb.co/BK7tZNhn/Restart.png',
+  resume: 'https://mitchivin.com/assets/gui/desktop/resume.webp',
+  shutdown: 'https://mitchivin.com/assets/gui/start-menu/shutdown.webp',
+  smashkarts: 'https://icons.iconarchive.com/icons/papirus-team/papirus-apps/512/supertuxkart-icon.png',
+  spotify: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg',
+  supabase: 'https://cdn.simpleicons.org/supabase/3ECF8E',
+  trae: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/trae-color.png',
+  vaaniSetu: 'https://vaani-setu-website.vercel.app/assets/bd00bd3a9f16cf036d031e12858b5516cf661d7f-BHL3j4vr.png',
+  vercel: 'https://cdn.simpleicons.org/vercel/white',
+  vscode: 'https://icons.iconarchive.com/icons/papirus-team/papirus-apps/512/visual-studio-code-icon.png',
+  wordpress: 'https://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Wordpress-icon.png',
+};
+
+export const TEXT = {
+  brand: 'Portfolio',
+  name: 'Aareev Srinivasan',
+  role: 'Full-Stack Developer',
+};

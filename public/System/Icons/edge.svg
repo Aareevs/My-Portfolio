@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Microsoft Edge">
+  <defs>
+    <linearGradient id="edgeA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#35c7f2"/>
+      <stop offset="1" stop-color="#47d16c"/>
+    </linearGradient>
+    <linearGradient id="edgeB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#33a8f4"/>
+      <stop offset="1" stop-color="#0d5fc6"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#edgeA)" d="M456 333c0 94-76 171-170 171-63 0-118-34-148-85 30 23 79 36 123 26 56-12 96-53 109-101 17-63-12-122-68-151-66-34-151-9-191 59 8-104 96-186 204-186 117 0 211 94 211 211 0 19-3 38-9 56-24-12-41-11-61 0z"/>
+  <path fill="url(#edgeB)" d="M80 348c0-89 73-162 162-162 58 0 108 29 136 74-18-12-40-20-65-20-66 0-119 53-119 119 0 51 32 95 78 112-108 17-192-49-192-123z"/>
+</svg>
