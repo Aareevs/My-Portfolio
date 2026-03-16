@@ -1,0 +1,6 @@
+[InternetShortcut]
+BaseURL=FileExplorer
+Comment=Open users directory.
+IconFile=/System/Icons/user.webp
+Type=System
+URL=/Users
