@@ -1,0 +1,32 @@
+{
+  "iconPositions": {
+    "/Users/Public/Desktop/My PC.url": {
+      "gridColumnStart": 1,
+      "gridRowStart": 1
+    },
+    "/Users/Public/Desktop/Users.url": {
+      "gridColumnStart": 2,
+      "gridRowStart": 1
+    },
+    "/Users/Public/Desktop/About Me.url": {
+      "gridColumnStart": 1,
+      "gridRowStart": 2
+    },
+    "/Users/Public/Desktop/Contact Me.url": {
+      "gridColumnStart": 1,
+      "gridRowStart": 3
+    },
+    "/Users/Public/Desktop/My Projects.url": {
+      "gridColumnStart": 1,
+      "gridRowStart": 4
+    },
+    "/Users/Public/Desktop/My Resume.url": {
+      "gridColumnStart": 1,
+      "gridRowStart": 5
+    },
+    "/Users/Public/Desktop/Spotify.url": {
+      "gridColumnStart": 1,
+      "gridRowStart": 6
+    }
+  }
+}
