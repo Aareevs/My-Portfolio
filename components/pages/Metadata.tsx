@@ -5,7 +5,6 @@ import { useProcesses } from "contexts/process";
 import { useSession } from "contexts/session";
 import desktopIcons from "public/.index/desktopIcons.json";
 import {
-  FAVICON_BASE_PATH,
   HIGH_PRIORITY_ELEMENT,
   ONE_TIME_PASSIVE_EVENT,
   PACKAGE_DATA,
@@ -36,7 +35,7 @@ const Metadata: FC = () => {
   const resetFaviconAndTitle = useCallback((): void => {
     setTitle(alias);
     setFavIcon((currentFavicon) =>
-      currentFavicon ? FAVICON_BASE_PATH : currentFavicon
+      currentFavicon ? "/as-logo.png" : currentFavicon
     );
   }, []);
   const currentFavIcon = useMemo(
@@ -69,7 +68,7 @@ const Metadata: FC = () => {
 
       if (title !== documentTitle) setTitle(documentTitle);
       if (favIcon !== processIcon || !favIcon) {
-        setFavIcon(encodeURI(processIcon) || FAVICON_BASE_PATH);
+        setFavIcon(encodeURI(processIcon) || "/as-logo.png");
       }
     } else {
       resetFaviconAndTitle();
@@ -92,7 +91,7 @@ const Metadata: FC = () => {
 
       if (faviconLinkElement instanceof HTMLLinkElement) {
         try {
-          faviconLinkElement.href = FAVICON_BASE_PATH;
+          faviconLinkElement.href = "/as-logo.png";
         } catch {
           // Ignore failure to set link href
         }

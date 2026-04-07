@@ -12,9 +12,10 @@ export const COLORS = {
 
 export const ASSETS = {
   avatar: '/avatar.png',
-  soundLogin: 'https://www.myinstants.com/media/sounds/windows-xp-startup.mp3',
+  soundLogin: '/win10-bootup-sound.mp3',
   wallpaper:
     'https://preview.redd.it/microsoft-design-team-shared-an-updated-4k-version-of-the-v0-9owhc7wuc65b1.jpg?auto=webp&s=8981649e0186af9fc55b8be44724c9779d9793c0',
+  win10Wallpaper: '/images/mountain-lake.jpg',
   windowsLogo:
     'https://upload.wikimedia.org/wikipedia/commons/5/5f/Windows_XP_icon.png',
 };

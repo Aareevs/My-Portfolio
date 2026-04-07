@@ -84,20 +84,21 @@ export const WALLPAPER_MENU: WallpaperMenuItem[] = [
     name: "Grand Canyon",
   },
   {
-    id: "/Users/Public/Pictures/oregon-sunset.mov",
+    id: "/Users/Public/Pictures/oregon-sunset.jpg",
     name: "Oregon Sunset",
   },
   {
     id: "/Users/Public/Pictures/swiss-alps.jpg",
     name: "Swiss Alps",
   },
+
   {
-    id: "/Users/Public/Pictures/moon-sky.mp4",
-    name: "Moon & Sky",
+    id: "/Users/Public/Pictures/Tahoe Day.jpg",
+    name: "Tahoe Day",
   },
   {
-    id: "/Users/Public/Pictures/Tahoe Day.mov",
-    name: "Tahoe Day",
+    id: "/Users/Public/Pictures/night-city-bg.jpg",
+    name: "Night City",
   },
   {
     id: "VANTA",

@@ -88,6 +88,7 @@ const useFolderContextMenu = (
     iconPositions,
     setForegroundId,
     setWallpaper: setSessionWallpaper,
+    setWidgets,
     setIconPositions,
     sortOrders,
     updateRecentFiles,
@@ -432,6 +433,31 @@ const useFolderContextMenu = (
             ? [
                 MENU_SEPERATOR,
                 {
+                  label: "Add Widget",
+                  menu: [
+                    {
+                      action: () => setWidgets((w) => ({ ...w, [`clock-${Date.now()}`]: { id: `clock-${Date.now()}`, type: "Clock", position: { x: (event as React.MouseEvent).clientX || 50, y: (event as React.MouseEvent).clientY || 50 } } })),
+                      label: "Date Time",
+                    },
+                    {
+                      action: () => setWidgets((w) => ({ ...w, [`battery-${Date.now()}`]: { id: `battery-${Date.now()}`, type: "Battery", position: { x: (event as React.MouseEvent).clientX || 50, y: (event as React.MouseEvent).clientY || 50 } } })),
+                      label: "Battery",
+                    },
+                    {
+                      action: () => setWidgets((w) => ({ ...w, [`calc-${Date.now()}`]: { id: `calc-${Date.now()}`, type: "Calculator", position: { x: (event as React.MouseEvent).clientX || 50, y: (event as React.MouseEvent).clientY || 50 } } })),
+                      label: "Calculator",
+                    },
+                    {
+                      action: () => setWidgets((w) => ({ ...w, [`system-${Date.now()}`]: { id: `system-${Date.now()}`, type: "SystemMonitor", position: { x: (event as React.MouseEvent).clientX || 50, y: (event as React.MouseEvent).clientY || 50 } } })),
+                      label: "System Monitor",
+                    },
+                    {
+                      action: () => setWidgets((w) => ({ ...w, [`weather-${Date.now()}`]: { id: `weather-${Date.now()}`, type: "Weather", position: { x: (event as React.MouseEvent).clientX || 50, y: (event as React.MouseEvent).clientY || 50 } } })),
+                      label: "Weather",
+                    },
+                  ],
+                },
+                {
                   label: "Background",
                   menu: WALLPAPER_MENU.filter(
                     ({ requiresWebGPU }) => !requiresWebGPU || hasWebGPU
@@ -596,6 +622,7 @@ const useFolderContextMenu = (
       rootFs?.mntMap,
       setForegroundId,
       setSessionWallpaper,
+      setWidgets,
       sortBy,
       updateDesktopIconPositions,
       updateFolder,

@@ -30,8 +30,6 @@ public/Users/Public/**
 !public/Users/Public/Pictures/*.svg
 !public/Users/Public/Pictures/prompts.json
 !public/Users/Public/Pictures/slideshow.json
-public/Users/Public/Pictures/*.mp4
-public/Users/Public/Pictures/*.mov
 !public/Users/Public/Start Menu
 !public/Users/Public/Start Menu/*.url
 !public/Users/Public/Start Menu/Emulators

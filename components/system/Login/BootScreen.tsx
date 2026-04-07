@@ -1,12 +1,65 @@
-
 import React, { useEffect } from 'react';
-import { m as motion } from "motion/react";
-import { TEXT } from '../../constants';
-import { XPLogo } from './XPIcons';
+import styled, { keyframes } from 'styled-components';
 
 interface LoadingScreenProps {
   onComplete: () => void;
 }
+
+const orbit = keyframes`
+  0% { transform: rotate(225deg); opacity: 1; animation-timing-function: ease-out; }
+  7% { transform: rotate(345deg); animation-timing-function: linear; }
+  30% { transform: rotate(455deg); animation-timing-function: ease-in-out; }
+  39% { transform: rotate(690deg); animation-timing-function: linear; }
+  70% { transform: rotate(815deg); opacity: 1; animation-timing-function: ease-out; }
+  75% { transform: rotate(945deg); opacity: 0; animation-timing-function: ease-out; }
+  76% { transform: rotate(945deg); opacity: 0; }
+  100% { transform: rotate(945deg); opacity: 0; }
+`;
+
+const SpinnerContainer = styled.div`
+  position: relative;
+  width: 44px;
+  height: 44px;
+
+  .circle {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    opacity: 0;
+    transform: rotate(225deg);
+    animation: ${orbit} 5.5s infinite;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #fff;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+    }
+  }
+
+  .circle:nth-child(2) { animation-delay: 240ms; }
+  .circle:nth-child(3) { animation-delay: 480ms; }
+  .circle:nth-child(4) { animation-delay: 720ms; }
+  .circle:nth-child(5) { animation-delay: 960ms; }
+`;
+
+const BootScreenContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+  user-select: none;
+  overflow: hidden;
+`;
 
 const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   useEffect(() => {
@@ -19,59 +72,29 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center bg-black text-white select-none relative overflow-hidden">
-      <div className="flex flex-col items-center w-full max-w-2xl p-4 pb-20">
+    <BootScreenContainer>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', maxWidth: '42rem', paddingBottom: '5rem', marginTop: '-10vh' }}>
         
-        {/* Main Logo Area */}
-        <div className="flex items-center justify-center mb-16 scale-110 sm:scale-125">
-          <XPLogo className="w-20 h-20 sm:w-24 sm:h-24 mr-4" />
-          <div className="flex flex-col leading-none select-none">
-            <h1 className="font-bold text-4xl sm:text-6xl tracking-tight font-sans">
-              {TEXT.name}
-            </h1>
-            <span className="text-lg sm:text-xl italic font-light text-gray-200 ml-1 mt-1">
-              {TEXT.role}
-            </span>
-          </div>
+        {/* Windows 10 Logo */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '6rem' }}>
+          <svg viewBox="0 0 88 88" style={{ width: '104px', height: '104px', color: '#0078D7', fill: 'currentColor' }}>
+            <path d="M0 12.4l35.6-4.8v34.4H0V12.4zm0 33.6h35.6v34.4L0 75.6V46zM40 6.6L88 0v41H40V6.6zm0 38.4H88v41L40 79.4V45z"/>
+          </svg>
         </div>
 
-        {/* XP Boot Progress Bar Container */}
-        <div className="w-[280px] sm:w-[320px] h-[18px] border-[2px] border-[#b2b2b2] rounded-[4px] p-[2px] relative overflow-hidden bg-black">
-           
-           {/* The Marching Blue Squares Group */}
-           <motion.div 
-             className="absolute top-[2px] bottom-[2px] flex gap-[2px]"
-             initial={{ x: -100 }}
-             animate={{ x: 350 }}
-             transition={{ 
-               repeat: Infinity, 
-               duration: 2.5, 
-               ease: "linear",
-             }}
-           >
-             {/* 3 Blue Squares */}
-             {[0, 1, 2].map((i) => (
-               <div 
-                 key={i}
-                 className="w-[16px] h-full rounded-[2px] shadow-[inset_0_0_2px_rgba(0,0,0,0.5)]"
-                 style={{
-                    background: 'linear-gradient(to bottom, #5d94fb 0%, #1e4db7 100%)',
-                    boxShadow: 'inset 0px 1px 2px rgba(255,255,255,0.4), 0 0 2px rgba(0,0,0,0.5)'
-                 }}
-               />
-             ))}
-           </motion.div>
-
-        </div>
-
-        {/* Footer Text */}
-        <div className="absolute bottom-8 flex justify-between w-full max-w-4xl px-8 text-xs sm:text-sm text-gray-400 font-sans">
-             <span className="opacity-0">.</span> {/* Spacer */}
-            <span className="italic">{TEXT.brand} &reg;</span>
+        {/* Windows 10 Spinner */}
+        <div style={{ marginTop: '4rem' }}>
+          <SpinnerContainer>
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+          </SpinnerContainer>
         </div>
 
       </div>
-    </div>
+    </BootScreenContainer>
   );
 };
 

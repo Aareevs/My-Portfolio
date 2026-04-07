@@ -18,6 +18,7 @@ import {
   type SortOrders,
   type WallpaperFit,
   type WindowStates,
+  type Widgets,
 } from "contexts/session/types";
 import defaultSession from "public/session.json";
 import {
@@ -73,6 +74,7 @@ const useSessionContextState = (): SessionContextState => {
   );
   const [wallpaperFit, setWallpaperFit] = useState(DEFAULT_WALLPAPER_FIT);
   const [wallpaperImage, setWallpaperImage] = useState(DEFAULT_WALLPAPER);
+  const [widgets, setWidgets] = useState(Object.create(null) as Widgets);
   const [runHistory, setRunHistory] = useState<string[]>([]);
   const [recentFiles, setRecentFiles] = useState<RecentFiles>([]);
   const updateRecentFiles = useCallback(
@@ -226,6 +228,7 @@ const useSessionContextState = (): SessionContextState => {
             views,
             wallpaperFit,
             wallpaperImage,
+            widgets,
             windowStates,
           }),
           true
@@ -247,6 +250,7 @@ const useSessionContextState = (): SessionContextState => {
     views,
     wallpaperFit,
     wallpaperImage,
+    widgets,
     windowStates,
     writeFile,
   ]);
@@ -349,6 +353,9 @@ const useSessionContextState = (): SessionContextState => {
           ) {
             setWindowStates(session.windowStates);
           }
+          if (session.widgets && Object.keys(session.widgets).length > 0) {
+            setWidgets(session.widgets);
+          }
           if (session.runHistory && session.runHistory.length > 0) {
             setRunHistory(session.runHistory);
           }
@@ -408,6 +415,7 @@ const useSessionContextState = (): SessionContextState => {
     setThemeName,
     setViews,
     setWallpaper,
+    setWidgets,
     setWindowStates,
     sortOrders,
     stackOrder,
@@ -416,6 +424,7 @@ const useSessionContextState = (): SessionContextState => {
     views,
     wallpaperFit,
     wallpaperImage,
+    widgets,
     windowStates,
   };
 };

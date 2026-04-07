@@ -38,6 +38,14 @@ export type IconPosition = {
 
 export type IconPositions = Record<string, IconPosition>;
 
+export type WidgetState = {
+  id: string;
+  type: string;
+  position: Position;
+};
+
+export type Widgets = Record<string, WidgetState>;
+
 export type SessionData = {
   aiEnabled: boolean;
   clockSource: ClockSource;
@@ -51,6 +59,7 @@ export type SessionData = {
   views: Views;
   wallpaperFit: WallpaperFit;
   wallpaperImage: string;
+  widgets: Widgets;
   windowStates: WindowStates;
 };
 
@@ -75,6 +84,7 @@ export type SessionContextState = SessionData & {
   setThemeName: React.Dispatch<React.SetStateAction<ThemeName>>;
   setViews: React.Dispatch<React.SetStateAction<Views>>;
   setWallpaper: (image: string, fit?: WallpaperFit) => void;
+  setWidgets: React.Dispatch<React.SetStateAction<Widgets>>;
   setWindowStates: React.Dispatch<React.SetStateAction<WindowStates>>;
   stackOrder: string[];
   updateRecentFiles: (url: string, pid: string, title?: string) => void;

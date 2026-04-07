@@ -2,6 +2,7 @@ import { memo, useRef } from "react";
 import StyledDesktop from "components/system/Desktop/StyledDesktop";
 import useWallpaper from "components/system/Desktop/Wallpapers/useWallpaper";
 import FileManager from "components/system/Files/FileManager";
+import WidgetsManager from "components/system/Desktop/Widgets/WidgetsManager";
 import { DESKTOP_PATH } from "utils/constants";
 
 const Desktop: FC = ({ children }) => {
@@ -19,6 +20,7 @@ const Desktop: FC = ({ children }) => {
         isDesktop
         loadIconsImmediately
       />
+      <WidgetsManager />
       {children}
     </StyledDesktop>
   );

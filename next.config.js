@@ -31,7 +31,13 @@ const nextConfig = {
   },
   devIndicators: false,
   headers: async () => [],
-  output: "export",
+  rewrites: async () => [
+    {
+      source: '/weather-api/:path*',
+      destination: 'https://wttr.in/:path*',
+    },
+  ],
+  ...(isProduction ? { output: "export" } : {}),
   productionBrowserSourceMaps: false,
   reactProductionProfiling: false,
   reactStrictMode: !isProduction,

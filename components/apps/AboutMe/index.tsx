@@ -185,9 +185,12 @@ const AboutMe: FC<ComponentProcessProps> = () => {
                   <div style={{ backgroundColor: '#4f402f', padding: 12, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Award size={24} className="text-yellow-400" />
                   </div>
-                  <div>
+                  <div style={{ flex: 1 }}>
                     <h3 style={{ fontSize: 18, fontWeight: 600, color: '#ffffff', marginBottom: 4 }}>Certification of Career Essentials in Gen AI</h3>
-                    <p style={{ fontSize: 15, color: '#9ca3af' }}>Gotten through Microsoft & LinkedIn Learning</p>
+                    <p style={{ fontSize: 15, color: '#9ca3af', marginBottom: 16 }}>Gotten through Microsoft & LinkedIn Learning</p>
+                    <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid #3a3a3c', backgroundColor: '#1e1e20' }}>
+                      <img src="/images/certificates/gen-ai.jpg" alt="Gen AI Certificate" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -198,9 +201,12 @@ const AboutMe: FC<ComponentProcessProps> = () => {
                   <div style={{ backgroundColor: '#4f402f', padding: 12, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Award size={24} className="text-yellow-400" />
                   </div>
-                  <div>
+                  <div style={{ flex: 1 }}>
                     <h3 style={{ fontSize: 18, fontWeight: 600, color: '#ffffff', marginBottom: 4 }}>Learning Github</h3>
-                    <p style={{ fontSize: 15, color: '#9ca3af' }}>Gotten through LinkedIn Learning</p>
+                    <p style={{ fontSize: 15, color: '#9ca3af', marginBottom: 16 }}>Gotten through LinkedIn Learning</p>
+                    <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid #3a3a3c', backgroundColor: '#1e1e20' }}>
+                      <img src="/images/certificates/github.jpg" alt="GitHub Certificate" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -211,9 +217,12 @@ const AboutMe: FC<ComponentProcessProps> = () => {
                   <div style={{ backgroundColor: '#4f402f', padding: 12, borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <Award size={24} className="text-yellow-400" />
                   </div>
-                  <div>
+                  <div style={{ flex: 1 }}>
                     <h3 style={{ fontSize: 18, fontWeight: 600, color: '#ffffff', marginBottom: 4 }}>Introduction to Web Designing</h3>
-                    <p style={{ fontSize: 15, color: '#9ca3af' }}>Gotten through freeCodeCamp</p>
+                    <p style={{ fontSize: 15, color: '#9ca3af', marginBottom: 16 }}>Gotten through freeCodeCamp</p>
+                    <div style={{ borderRadius: 8, overflow: 'hidden', border: '1px solid #3a3a3c', backgroundColor: '#1e1e20' }}>
+                      <img src="/images/certificates/web-design.png" alt="Web Design Certificate" style={{ width: '100%', height: 'auto', display: 'block' }} />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -238,16 +247,19 @@ const AboutMe: FC<ComponentProcessProps> = () => {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {[
-                  { name: 'HTML/CSS', percent: 85, color: '#e34c26', bg: '#3b2520' },
-                  { name: 'JavaScript', percent: 75, color: '#f7df1e', bg: '#403c20' },
-                  { name: 'React', percent: 70, color: '#61dafb', bg: '#203940' },
-                  { name: 'React Native', percent: 65, color: '#61dafb', bg: '#203940' },
-                  { name: 'TypeScript', percent: 65, color: '#3178c6', bg: '#202a40' },
-                  { name: 'Kotlin', percent: 50, color: '#7F52FF', bg: '#2a1b55' },
+                  { name: 'HTML/CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg', percent: 100, color: '#e34c26', bg: '#3b2520' },
+                  { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg', percent: 60, color: '#f7df1e', bg: '#403c20' },
+                  { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', percent: 45, color: '#61dafb', bg: '#203940' },
+                  { name: 'React Native', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg', percent: 65, color: '#61dafb', bg: '#203940' },
+                  { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg', percent: 40, color: '#3178c6', bg: '#202a40' },
+                  { name: 'Kotlin', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg', percent: 60, color: '#7F52FF', bg: '#2a1b55' },
                 ].map(tech => (
                   <div key={tech.name}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-                      <span style={{ fontSize: 14, color: '#e5e5e5' }}>{tech.name}</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <img src={tech.icon} alt={tech.name} style={{ width: 16, height: 16, objectFit: 'contain' }} />
+                        <span style={{ fontSize: 14, color: '#e5e5e5' }}>{tech.name}</span>
+                      </div>
                       <span style={{ fontSize: 13, color: '#6b7280' }}>{tech.percent}%</span>
                     </div>
                     <div style={{ width: '100%', height: 8, backgroundColor: '#2c2c30', borderRadius: 4, overflow: 'hidden' }}>
@@ -267,13 +279,16 @@ const AboutMe: FC<ComponentProcessProps> = () => {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 {[
-                  { name: 'Java', percent: 70, color: '#f89820', bg: '#3d2c1c' },
-                  { name: 'Node.js', percent: 60, color: '#3c873a', bg: '#1f301e' },
-                  { name: 'Python', percent: 55, color: '#3776ab', bg: '#1c2833' },
+                  { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg', percent: 55, color: '#f89820', bg: '#3d2c1c' },
+                  { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', percent: 30, color: '#3c873a', bg: '#1f301e' },
+                  { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', percent: 45, color: '#3776ab', bg: '#1c2833' },
                 ].map(tech => (
                   <div key={tech.name}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-                      <span style={{ fontSize: 14, color: '#e5e5e5' }}>{tech.name}</span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <img src={tech.icon} alt={tech.name} style={{ width: 16, height: 16, objectFit: 'contain' }} />
+                        <span style={{ fontSize: 14, color: '#e5e5e5' }}>{tech.name}</span>
+                      </div>
                       <span style={{ fontSize: 13, color: '#6b7280' }}>{tech.percent}%</span>
                     </div>
                     <div style={{ width: '100%', height: 8, backgroundColor: '#2c2c30', borderRadius: 4, overflow: 'hidden' }}>

@@ -29,239 +29,181 @@
 - Allow sorting by name, size, type or date
   - Persists icon position/sort order
 
-### Windows
+<p align="center">
+  <img src="./public/screenshot.png" alt="AareevSrin OS screenshot" width="100%" />
+</p>
 
-- [Resizable and Draggable](https://github.com/bokuweb/react-rnd)
-- Minimize, Maximize & Close
-- Persists size/position/maximized states
-- [Animates](https://www.framer.com/motion/) opening and closing
+<p align="center">
+  <strong>A Windows-style portfolio experience built as an interactive operating system in the browser.</strong>
+</p>
 
-### Start Menu
+<p align="center">
+  <a href="https://aareevsrinivasan.com">Live Site</a>
+  ·
+  <a href="https://github.com/Aareevs/My-Portfolio">Repository</a>
+</p>
 
-- Expandable Sidebar
-  - Apps list, Documents/Pictures/Videos shortcuts, Power (clears session)
-- Spotlight visual effect
-- Folder support
-- Keyboard shortcut opens with **_SHIFT+ESC_**
-  - Or Windows Key when in fullscreen
+---
 
-### Taskbar
+## What This Is
 
-- [Peek](https://github.com/bubkoo/html-to-image) hover preview of windows
-- Focused window indicator
-- Search menu (w/Recent files)
-- AI Chat Agent ([Prompt API](https://docs.google.com/document/d/1VG8HIyz361zGduWgNG7R_R8Xkv0OOJ8b5C9QKeCjU0c/edit) & [WebLLM](https://github.com/mlc-ai/web-llm)) (w/Summarize & Image Generation)
+`AareevSrin OS` is my portfolio reimagined as a desktop environment.
 
-### Clock
+Instead of a standard landing page, this project opens like a personal operating system with a boot flow, login screen, draggable windows, taskbar, start menu, desktop shortcuts, wallpapers, apps, media tools, and interactive projects.
 
-- Runs in a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers)
-  - Drawn in an [OffscreenCanvas](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas)
-- NTP server time mode ([ntp.js](http://www.ntpjs.org/))
-- Synced to system clock on load
-- Date tooltip
-- Calendar popup
+It is both a portfolio and a product-like frontend experiment.
 
-### Background & Screensaver
+---
 
-- Dynamic animated wallpapers ([OffscreenCanvas](https://developer.mozilla.org/en-US/docs/Web/API/OffscreenCanvas)/[Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers))
-  - [Waves](https://www.vantajs.com/?effect=waves)
-  - [Hexells](https://znah.net/hexells/)
-  - [Matrix](https://rezmason.github.io/matrix/)
-  - [Coastal Landscape](https://www.shadertoy.com/view/fstyD4)
-- Set via image/video (Fill, Fit, Stretch, Tile, Center)
-- Picture Slideshow
-- [Astronomy Picture of the Day](https://api.nasa.gov/#apod)
-- [Art Institute of Chicago](https://api.artic.edu/docs/)
-- [Lorem Picsum](https://picsum.photos/)
-- AI Generated Wallpapers [Stable Diffusion](https://stability.ai/stable-diffusion)
-- Custom screen saver file support
-  - [3D FlowerBox](https://github.com/kevin-shannon/3D-FlowerBox)
-  - [3D Maze](https://github.com/ibid-11962/Windows-95-3D-Maze-Screensaver)
-  - [Pipes](https://github.com/1j01/pipes)
+## Experience Highlights
 
-### URL
+- Windows-inspired desktop UI with boot, login, desktop, taskbar, start menu, and window management
+- Interactive portfolio sections as native-feeling desktop apps
+- Real file-system style browsing powered in the browser
+- Drag, resize, minimize, maximize, and layered app windows
+- Search, recent files, custom desktop icon placement, and session persistence
+- Dynamic wallpapers, slideshow support, and media-friendly desktop behavior
+- Built-in apps for projects, resume, browser, terminal, paint, photos, PDF viewing, Spotify, and more
+- Emulator and retro-computing inspired experiences baked into the interface
 
-- Query parameter loading
-  - Examples:
-    - `/?url=/CREDITS.md`
-    - `/?app=Browser`
+---
 
-# Apps 🧪
+## Built With
 
-### [BoxedWine](http://www.boxedwine.org/) (**_.exe, .zip_**)
+### Core Stack
 
-- Runs 16/32-bit Windows applications
+- `Next.js`
+- `React`
+- `TypeScript`
+- `styled-components`
 
-### Browser (**_.htm, .html_**)
+### System + UI
 
-- Loads websites (_w/CORS support_)
-- Bookmark bar
-- Favicon support
-- Back/Forward & Reload
-- Google search via Address bar
-- IPFS protocol support
-- [chrome://dino](https://github.com/wayou/t-rex-runner) game
+- `BrowserFS`
+- `motion`
+- `react-rnd`
+- `idb`
+- `xterm`
+- `Monaco Editor`
 
-### [DevTools](https://eruda.liriliri.io/)
+### Media + Desktop Tools
 
-- Console, Elements, Network, Resources, Sources, DOM
-- Activate from Start Menu or **_SHIFT+F12_**
+- `ffmpeg.wasm`
+- `mediainfo.js`
+- `music-metadata-browser`
+- `jspaint`
+- `pdf.js`
+- `Webamp`
+- `TinyMCE`
 
-### [EmulatorJS](https://github.com/ethanaobrien/emulatorjs) (**_.32x, .a26, .a52, .a78, .gb, .gba, .gbc, .gen, .gg, .j64, .jag, .lnx, .n64, .nds, .nes, .ngc, .ngp, .pce, .sfc, .smc, .smd, .sms, .v64, .vb, .vboy, .ws, .wsc, .z64_**)
+### Testing + Tooling
 
-- Plays console game roms
+- `Jest`
+- `Playwright`
+- `ESLint`
+- `Stylelint`
+- `Prettier`
+- `Husky`
 
-### [IRC](https://kiwiirc.com/)
+---
 
-- Internet Relay Chat Client
-- Connects over WebSockets
+## App Surface
 
-### [js-dos](https://js-dos.com/) (**_.exe, .jsdos, .zip_**)
+This portfolio includes a large in-browser app surface, including:
 
-- DOS emulator
-- Automatic save states on close
-  - /Users/Public/Snapshots
-- Automatic window resize
+- `About Me`
+- `My Projects`
+- `Resume`
+- `Contact Me`
+- `Browser`
+- `Terminal`
+- `Photos`
+- `Paint`
+- `PDF`
+- `Spotify`
+- `Messenger`
+- `Monaco Editor`
+- `TinyMCE`
+- `Webamp`
+- `Emulator / retro app experiences`
 
-### [Marked](https://marked.js.org/) (**_.md_**)
+---
 
-- Markdown Viewer
+## Local Development
 
-### Messenger
+### Requirements
 
-- Encrypted direct messaging client
-- Utilizes [Nostr Protocol](https://nostr.com/) ([NIP-04](https://github.com/nostr-protocol/nips/blob/master/04.md))
-- Automatic public/private key creation
+- `Node.js`
+- `npm` or `yarn`
 
-### [Monaco Editor](https://microsoft.github.io/monaco-editor/)
+### Install
 
-- Code/text editor
-- Supports all file types
-- Save files via **_CTRL+S_**
-- Line count, cursor position, language id
-- [Prettier](https://prettier.io/) formatting
-  - json, js/ts, css/sass/less, html, markdown
-
-### [Paint](https://github.com/1j01/jspaint) (**_.bmp, .gif, .ico, .jpg, .png, .tiff, .webp,_**)
-
-- Create & edit images
-
-### [PDF](https://mozilla.github.io/pdf.js/) (**_.pdf_**)
-
-- Render/Print PDF's
-- Page current/count & Zoom
-
-### Photos
-
-- [Supported Formats](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#supported_image_formats)
-  - [HEIF](https://github.com/catdad-experiments/libheif-js) (**_.heic, .heif_**)
-  - [JPEG XL](https://github.com/niutech/jxl.js) (**_.jxl_**)
-  - [QOI](https://gist.github.com/nicolaslegland/f0577cb49b1e56b729a2c0fc0aa151ba) (**_.qoi_**)
-  - [TIFF](https://github.com/photopea/UTIF.js) (**_.tif, .tiff_**)
-- Fullscreen & [Zoom](https://github.com/anvaka/panzoom)
-
-### [Ruffle](https://ruffle.rs/) (**_.swf, .spl_**)
-
-- Flash Player emulator
-
-### [Stable Diffusion](https://stability.ai/stable-diffusion)
-
-- Creates 512x512 images using artificial intelligence
-- Runs locally using [WebSD](https://mlc.ai/web-stable-diffusion/)
-
-### [Terminal](https://xtermjs.org/)
-
-- File system support
-- Autocomplete & history
-- Pipe commands together
-- Command list via `help`
-- [Git support](https://isomorphic-git.org/) (checkout & clone)
-- [Python support](https://pyodide.org/) (**_.py_**)
-- [WebAssembly Package Manager](https://wapm.io/)
-  - Ex: `wapm cowsay moo` ([\#](https://wapm.io/package/cowsay))
-- [Weather information](https://wttr.in/)
-- [eSheep](https://adrianotiger.github.io/web-esheep/)
-- Activate from Start Menu or **_SHIFT+F10_**
-- Neofetch
-
-### [TinyMCE](https://www.tiny.cloud/tinymce/) (**_.rtf, .whtml_**)
-
-- Read & WYSIWYG modes
-- File save support
-
-### [Virtual x86](https://copy.sh/v86/) (**_.img, .iso_**)
-
-- x86 emulator
-- Automatic save states on close
-  - /Users/Public/Snapshots
-- Automatic window resize
-
-### [Video Player](https://videojs.com/)
-
-- [Supported Formats](https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs)
-- Plays [YouTube](https://github.com/videojs/videojs-youtube) videos/shortcuts
-- Keyboard Shortcuts (Volume, Seek, Scale, Fullscreen)
-
-### [Vim](https://github.com/coolwanglu/vim.js)
-
-- Code/text editor
-- Supports all file types
-
-### [Webamp](https://webamp.org/) (**_.mp3, .wsz_**)
-
-- Winamp audio player
-- [Skin support](https://skins.webamp.org/)
-- Playlist & streaming support
-- Visualization support (["Milkdrop"](https://github.com/jberg/butterchurn))
-
-# Games 🎮
-
-### [ClassiCube](https://www.classicube.net/)
-
-- Minecraft Classic compatible client
-
-### [Smash Karts](https://smashkarts.io/)
-
-- Multiplayer kart battle game
-
-### [Space Cadet Pinball](https://github.com/alula/SpaceCadetPinball)
-
-- Reverse engineering of 3D Pinball from Windows
-
-### [Quake III Arena](https://github.com/lrusso/Quake3)
-
-- Port of the classic first-person shooter
-
-# Try It 🚀
-
-##### Requirements
-
-- [Node.js](https://nodejs.org/en/download/)
-- [Yarn](https://yarnpkg.com/en/)
-
-##### Development
-
-```
-yarn install
-yarn build:prebuild
-yarn dev
+```bash
+npm install --legacy-peer-deps
 ```
 
-##### Production
+### Run locally
 
-```
-yarn install
-yarn build
-yarn serve
-```
-
-##### Docker
-
-```
-docker build -t daedalos .
-docker run -dp 3000:3000 --rm --name daedalos daedalos
+```bash
+npm run build:prebuild
+npm run dev -- -p 3001
 ```
 
-##### Notes
+Open `http://localhost:3001`.
 
-- If during `yarn install` you receive the error `digital envelope routines::unsupported`, set `NODE_OPTIONS=--openssl-legacy-provider` ([reference](https://stackoverflow.com/a/69699772/5895982)).
+### Production export
+
+```bash
+npm run build
+```
+
+The static site is generated in `out/`.
+
+---
+
+## Deployment Notes
+
+- The site is deployed via `GitHub Pages`
+- Large media files and ROM-sized assets should live outside the repo if they exceed GitHub's file limits
+- Small desktop assets, wallpapers, icons, and source code remain in the repository
+
+---
+
+## Project Structure
+
+```text
+components/   App windows, taskbar, desktop, login, and system UI
+contexts/     Session, filesystem, process, menu, and viewport state
+pages/        Next.js entry points
+public/       Icons, wallpapers, app assets, desktop files, and static resources
+scripts/      Search indexing, file tree generation, icon preload, and build helpers
+styles/       Global styling, theme tokens, shared UI styles
+utils/        Media, search, ffmpeg, imagemagick, and helper utilities
+e2e/          Playwright coverage for desktop and app behavior
+```
+
+---
+
+## Why This Project Exists
+
+I wanted my portfolio to feel memorable, tactile, and personal.
+
+A normal portfolio shows projects.
+
+This one lets you explore them through a full desktop interface with its own atmosphere, navigation model, and personality.
+
+---
+
+## Credits
+
+This project also builds on open-source tools, libraries, and browser experiments that made the desktop-style experience possible. A condensed credits list is available in [`public/CREDITS.md`](./public/CREDITS.md).
+
+---
+
+## Author
+
+**Aareev Srinivasan**
+
+- Website: [aareevsrinivasan.com](https://aareevsrinivasan.com)
+- GitHub: [@Aareevs](https://github.com/Aareevs)
+- Email: `aareevs@gmail.com`
