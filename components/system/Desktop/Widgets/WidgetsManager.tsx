@@ -10,7 +10,7 @@ const WidgetsManager = () => {
   return (
     <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
       <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-        {Object.values(widgets).map((widget) => {
+        {Object.entries(widgets).map(([widgetKey, widget]) => {
           let Content = null;
           switch (widget.type) {
             case "Clock": Content = ClockWidget; break;
@@ -22,7 +22,7 @@ const WidgetsManager = () => {
           }
 
           return (
-            <WidgetContainer key={widget.id} widget={widget}>
+            <WidgetContainer key={widgetKey} widget={widget} widgetKey={widgetKey}>
               <Content />
             </WidgetContainer>
           );

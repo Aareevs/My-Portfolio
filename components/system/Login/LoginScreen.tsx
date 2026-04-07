@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { ASSETS, TEXT } from '../../constants';
 import { DEFAULT_WALLPAPER } from 'utils/constants';
 import { useSession } from 'contexts/session';
@@ -11,6 +11,25 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
   const [screenState, setScreenState] = useState<'lock' | 'login' | 'logging-in'>('lock');
   const [time, setTime] = useState(new Date());
   const { wallpaperImage } = useSession();
+  const loginWallpaper = useMemo(() => {
+    const resolvedWallpaper = (wallpaperImage || DEFAULT_WALLPAPER).replace(
+      /\.(?:mp4|mov|webm)$/i,
+      '.jpg'
+    );
+
+    if (
+      typeof window === 'object' &&
+      resolvedWallpaper.startsWith('/Users/Public/')
+    ) {
+      return `${window.location.origin}${resolvedWallpaper}`;
+    }
+
+    return resolvedWallpaper;
+  }, [wallpaperImage]);
+  const loginWallpaperCssUrl = useMemo(
+    () => `url("${encodeURI(loginWallpaper)}")`,
+    [loginWallpaper]
+  );
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
@@ -71,7 +90,7 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onLogin }) => {
           screenState !== 'lock' ? 'scale-[1.03]' : 'scale-100'
         }`}
         style={{ 
-          backgroundImage: `url(${(wallpaperImage || DEFAULT_WALLPAPER).replace(/\.(mp4|mov|webm)$/i, '.jpg')})`,
+          backgroundImage: loginWallpaperCssUrl,
           filter: screenState !== 'lock' ? 'blur(20px) brightness(0.7)' : 'none'
         }}
       />

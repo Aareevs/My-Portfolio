@@ -5,30 +5,37 @@ import { type WidgetState } from "contexts/session/types";
 import { X } from "lucide-react";
 
 type Props = {
+  widgetKey: string;
   widget: WidgetState;
   children: React.ReactNode;
 };
 
-const WidgetContainer: React.FC<Props> = ({ widget, children }) => {
+const WidgetContainer: React.FC<Props> = ({ widget, widgetKey, children }) => {
   const { setWidgets } = useSession();
   const [hover, setHover] = useState(false);
 
-  const handleDelete = () => {
+  const handleDelete = (): void => {
     setWidgets((w) => {
       const copy = { ...w };
-      delete copy[widget.id];
+      delete copy[widgetKey];
       return copy;
     });
   };
 
   const handleDragStop = (e: any, d: any) => {
-    setWidgets((w) => ({
-      ...w,
-      [widget.id]: {
-        ...w[widget.id],
-        position: { x: d.x, y: d.y }
-      }
-    }));
+    setWidgets((w) => {
+      const currentWidget = w[widgetKey];
+
+      if (!currentWidget) return w;
+
+      return {
+        ...w,
+        [widgetKey]: {
+          ...currentWidget,
+          position: { x: d.x, y: d.y }
+        }
+      };
+    });
   };
 
   return (
@@ -41,24 +48,32 @@ const WidgetContainer: React.FC<Props> = ({ widget, children }) => {
       }}
       enableResizing={false}
       bounds="parent"
+      cancel=".widget-close-button"
       dragHandleClassName="widget-drag-handle"
       onDragStop={handleDragStop}
       style={{ zIndex: 10, position: 'absolute', pointerEvents: 'auto' }}
     >
       <div 
         style={{ position: 'relative', width: '100%', height: '100%' }} 
-        className="widget-drag-handle"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
         {hover && (
           <button
-            onClick={(e) => { e.stopPropagation(); handleDelete(); }}
-            onMouseDown={(e) => e.stopPropagation()}
+            className="widget-close-button"
+            onPointerDown={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleDelete();
+            }}
+            onMouseDown={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            }}
             style={{
               position: 'absolute',
-              top: -12,
-              right: -12,
+              top: 8,
+              right: 8,
               width: 24,
               height: 24,
               borderRadius: '50%',
@@ -70,13 +85,18 @@ const WidgetContainer: React.FC<Props> = ({ widget, children }) => {
               alignItems: 'center',
               justifyContent: 'center',
               zIndex: 20,
-              boxShadow: '0 2px 8px rgba(0,0,0,0.5)'
+              boxShadow: '0 2px 8px rgba(0,0,0,0.5)',
+              pointerEvents: 'auto',
+              touchAction: 'none'
             }}
+            type="button"
           >
             <X size={14} />
           </button>
         )}
-        {children}
+        <div className="widget-drag-handle">
+          {children}
+        </div>
       </div>
     </Rnd>
   );

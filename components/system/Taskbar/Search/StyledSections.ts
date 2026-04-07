@@ -104,6 +104,27 @@ const StyledSections = styled.div<StyledSectionsProps>`
           }
         }
 
+        .tile-icon {
+          align-items: center;
+          background-color: rgb(60 60 60 / 85%);
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          margin-bottom: 4px;
+          min-height: 80px;
+          min-width: 80px;
+          padding: 12px;
+          pointer-events: all;
+          user-select: all;
+
+          svg {
+            fill: currentcolor;
+            height: 56px;
+            margin: 0;
+            width: 56px;
+          }
+        }
+
         h4 {
           font-size: 11px;
           font-weight: 400;
