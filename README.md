@@ -1,4 +1,4 @@
-## 🌌 **AareevSrin OS** 🌌
+## 🌌 **Windows 10 OS** 🌌
 
 # System 🧠
 
@@ -28,20 +28,6 @@
 - File information tooltips
 - Allow sorting by name, size, type or date
   - Persists icon position/sort order
-
-<p align="center">
-  <img src="./public/screenshot.png" alt="AareevSrin OS screenshot" width="100%" />
-</p>
-
-<p align="center">
-  <strong>A Windows-style portfolio experience built as an interactive operating system in the browser.</strong>
-</p>
-
-<p align="center">
-  <a href="https://aareevsrinivasan.com">Live Site</a>
-  ·
-  <a href="https://github.com/Aareevs/My-Portfolio">Repository</a>
-</p>
 
 ---
 
