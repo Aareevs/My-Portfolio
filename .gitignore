@@ -1,6 +1,6 @@
 .next
 .swc
-certificates
+/certificates
 dist
 out
 
