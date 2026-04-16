@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ASSETS, XP_ICONS } from '../../constants';
-import { User, GraduationCap, Code2, Github, MapPin, Mail, Linkedin, ExternalLink, Award, Monitor, Server, Star, GitFork, Activity } from 'lucide-react';
+import { User, GraduationCap, Code2, Github, MapPin, Mail, Linkedin, ExternalLink, Award, Monitor, Server, Star, GitFork, Activity, PenTool } from 'lucide-react';
 import { type ComponentProcessProps } from "components/system/Apps/RenderComponent";
 import { FAVICON_BASE_PATH } from "utils/constants";
 
@@ -13,6 +13,17 @@ const TABS = [
 
 const AboutMe: FC<ComponentProcessProps> = () => {
   const [activeTab, setActiveTab] = useState('profile');
+  const [mountedTab, setMountedTab] = useState('');
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (activeTab === 'technologies') {
+      timer = setTimeout(() => setMountedTab('technologies'), 100);
+    } else {
+      setMountedTab('');
+    }
+    return () => clearTimeout(timer);
+  }, [activeTab]);
 
   return (
     <div style={{ display: 'flex', height: '100%', width: '100%', backgroundColor: '#1e1e20', color: '#e5e5e5', fontFamily: 'Inter, sans-serif', overflow: 'hidden' }}>
@@ -109,7 +120,7 @@ const AboutMe: FC<ComponentProcessProps> = () => {
                   <h2 style={{ fontSize: 18, fontWeight: 600, color: '#ffffff' }}>About</h2>
                 </div>
                 <p style={{ fontSize: 15, lineHeight: 1.7, color: '#9ca3af' }}>
-                  Hey, I am Aareev, a student at Vedam School of Technology pursuing B.Tech in Computer Science and AI. Excited to learn more. I am extremely passionate about building and testing websites. While Front-End is more of my specialty I enjoy coding Back-End as well.
+                  Hi, I'm Aareev, a student at Vedam School of Technology pursuing a B.Tech in Computer Science & Artificial Intelligence. I am deeply passionate about architecting and developing robust web experiences. While my expertise shines in crafting polished, interactive front-end interfaces, I also thrive on building scalable back-end systems and solving complex full-stack challenges.
                 </p>
               </div>
 
@@ -120,7 +131,7 @@ const AboutMe: FC<ComponentProcessProps> = () => {
                   <h2 style={{ fontSize: 18, fontWeight: 600, color: '#ffffff' }}>Skills</h2>
                 </div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-                  {['Web Design', 'UI/UX Design', 'Frontend Development', 'React', 'TypeScript', 'Tailwind CSS'].map(skill => (
+                  {['Web Design', 'UI/UX Design', 'Frontend Development', 'Public Speaking', 'Back-End Development'].map(skill => (
                     <span key={skill} style={{ padding: '6px 14px', borderRadius: 6, backgroundColor: '#2c2c30', border: '1px solid #3a3a3c', color: '#d1d5db', fontSize: 13 }}>
                       {skill}
                     </span>
@@ -263,7 +274,7 @@ const AboutMe: FC<ComponentProcessProps> = () => {
                       <span style={{ fontSize: 13, color: '#6b7280' }}>{tech.percent}%</span>
                     </div>
                     <div style={{ width: '100%', height: 8, backgroundColor: '#2c2c30', borderRadius: 4, overflow: 'hidden' }}>
-                      <div style={{ width: `${tech.percent}%`, height: '100%', backgroundColor: tech.color, borderRadius: 4 }} />
+                      <div style={{ width: mountedTab === 'technologies' ? `${tech.percent}%` : '0%', height: '100%', backgroundColor: tech.color, borderRadius: 4, transition: 'width 1s cubic-bezier(0.22, 1, 0.36, 1)' }} />
                     </div>
                   </div>
                 ))}
@@ -282,6 +293,7 @@ const AboutMe: FC<ComponentProcessProps> = () => {
                   { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg', percent: 55, color: '#f89820', bg: '#3d2c1c' },
                   { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg', percent: 30, color: '#3c873a', bg: '#1f301e' },
                   { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg', percent: 45, color: '#3776ab', bg: '#1c2833' },
+                  { name: 'Go', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg', percent: 5, color: '#00ADD8', bg: '#002b36' },
                 ].map(tech => (
                   <div key={tech.name}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
@@ -292,7 +304,7 @@ const AboutMe: FC<ComponentProcessProps> = () => {
                       <span style={{ fontSize: 13, color: '#6b7280' }}>{tech.percent}%</span>
                     </div>
                     <div style={{ width: '100%', height: 8, backgroundColor: '#2c2c30', borderRadius: 4, overflow: 'hidden' }}>
-                      <div style={{ width: `${tech.percent}%`, height: '100%', backgroundColor: tech.color, borderRadius: 4 }} />
+                      <div style={{ width: mountedTab === 'technologies' ? `${tech.percent}%` : '0%', height: '100%', backgroundColor: tech.color, borderRadius: 4, transition: 'width 1s cubic-bezier(0.22, 1, 0.36, 1)' }} />
                     </div>
                   </div>
                 ))}
@@ -331,6 +343,30 @@ const AboutMe: FC<ComponentProcessProps> = () => {
                 {[
                   { name: 'Vercel', icon: XP_ICONS.vercel },
                   { name: 'Supabase', icon: XP_ICONS.supabase },
+                  { name: 'Docker', icon: XP_ICONS.docker },
+                  { name: 'Hugging Face', icon: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg' },
+                ].map(tool => (
+                  <div key={tool.name} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderRadius: 8, backgroundColor: '#252528', border: '1px solid #3a3a3c' }}>
+                    <img src={tool.icon} alt={tool.name} style={{ width: 20, height: 20, objectFit: 'contain' }} />
+                    <span style={{ fontSize: 13, color: '#d1d5db' }}>{tool.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Design */}
+            <div style={{ marginTop: 40 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
+                <PenTool size={20} className="text-white" />
+                <h3 style={{ fontSize: 18, fontWeight: 600, color: '#ffffff' }}>Design</h3>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: 12 }}>
+                {[
+                  { name: 'Figma', icon: XP_ICONS.figma },
+                  { name: 'Photoshop', icon: XP_ICONS.adobePs },
+                  { name: 'Illustrator', icon: XP_ICONS.adobeAi },
+                  { name: 'Animate', icon: 'https://img.icons8.com/color/48/000000/adobe-animate.png' },
+                  { name: 'Canva', icon: 'https://static.vecteezy.com/system/resources/previews/067/065/667/non_2x/canva-logo-canva-logo-circle-canva-logo-circular-canva-logo-free-download-free-png.png' },
                 ].map(tool => (
                   <div key={tool.name} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px', borderRadius: 8, backgroundColor: '#252528', border: '1px solid #3a3a3c' }}>
                     <img src={tool.icon} alt={tool.name} style={{ width: 20, height: 20, objectFit: 'contain' }} />
@@ -352,17 +388,21 @@ const AboutMe: FC<ComponentProcessProps> = () => {
             </div>
 
             {/* Live GitHub Readme Stats Cards */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, marginBottom: 32, justifyContent: 'center' }}>
-              <img 
-                src="https://github-readme-stats-eight-theta.vercel.app/api?username=Aareevs&show_icons=true&theme=radical&hide_border=true&bg_color=1c1c1e&include_all_commits=true" 
-                alt="Aareev's GitHub Stats" 
-                style={{ maxWidth: '100%', height: 'auto', borderRadius: 12, border: '1px solid #3a3a3c' }}
-              />
-              <img 
-                src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=Aareevs&theme=radical&hide_border=true&bg_color=1c1c1e" 
-                alt="Top Languages" 
-                style={{ maxWidth: '100%', height: 'auto', borderRadius: 12, border: '1px solid #3a3a3c' }}
-              />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: 24, marginBottom: 32, width: '100%' }}>
+              <div style={{ padding: 20, borderRadius: 12, border: '1px solid #3a3a3c', backgroundColor: '#252528', display: 'flex', justifyContent: 'center' }}>
+                <img 
+                  src="https://github-readme-stats-eight-theta.vercel.app/api?username=Aareevs&show_icons=true&hide_border=true&bg_color=252528&include_all_commits=true&count_private=true&title_color=60a5fa&text_color=e5e5e5&icon_color=60a5fa" 
+                  alt="Aareev's GitHub Stats" 
+                  style={{ width: '100%', maxWidth: 450, height: 'auto' }}
+                />
+              </div>
+              <div style={{ padding: 20, borderRadius: 12, border: '1px solid #3a3a3c', backgroundColor: '#252528', display: 'flex', justifyContent: 'center' }}>
+                <img 
+                  src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=Aareevs&hide_border=true&bg_color=252528&layout=compact&langs_count=20&title_color=60a5fa&text_color=e5e5e5" 
+                  alt="Top Languages" 
+                  style={{ width: '100%', maxWidth: 450, height: 'auto' }}
+                />
+              </div>
             </div>
 
             {/* View Full Profile Button */}

@@ -76,7 +76,7 @@ const PROJECTS = [
     id: 3,
     title: "VPL-Auction-Website",
     category: "Web",
-    image: "https://images.unsplash.com/photo-1601315488950-3b5047998b38?auto=format&fit=crop&w=900&q=80",
+    image: "https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/272500/272593.6.jpg",
     logo: "/vpl-logo.png",
     description: "An IPL Auction Style area where website contains a dashboard and squad list for teams to see and an admin panel for admin to add players up for auction.",
     architecture: [
@@ -94,7 +94,7 @@ const PROJECTS = [
     id: 4,
     title: "Microsoft XP Portfolio",
     category: "Web",
-    image: "/screenshot.png",
+    image: "https://images.techeblog.com/wp-content/uploads/2025/02/21195755/run-windows-xp-apple-tv.jpg",
     logo: "/windows-xp-logo.png",
     description: "A nostalgic recreation of Windows XP as a portfolio.",
     architecture: [
@@ -158,6 +158,41 @@ const PROJECTS = [
     isFeatured: false,
     isStartup: false,
     githubUrl: "https://github.com/Aareevs/Focus-Time-Extension"
+  },
+  {
+    id: 8,
+    title: "Blurline: Corporate Credit Intelligence Systems",
+    category: "Web & AI",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
+    logo: "/blurline-logo.png",
+    description: "A full-stack AI credit appraisal platform that evaluates business risk from uploaded company datasets, computes a weighted credit score, and produces an explainable appraisal report.",
+    architecture: [
+      "Multi-file Ingestion & Normalization",
+      "Analysis Agents & LLM Report Generation"
+    ],
+    techStack: ["React", "FastAPI", "Python", "Tailwind CSS"],
+    status: "Completed",
+    isFeatured: true,
+    isStartup: true,
+    demoUrl: "https://alta-hackathon-code-bloods.vercel.app",
+    githubUrl: "https://github.com/Aareevs/AltaHackathon_CodeBloods", 
+  },
+  {
+    id: 9,
+    title: "OpenEnv: Release Desk",
+    category: "AI & Tools",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80",
+    description: "OpenEnv is an interactive environment for AI training data sanitization and compliance auditing. Turns the workflow into a deterministic environment for agent evaluation and learning.",
+    architecture: [
+      "Interactive Playground & Python Tooling",
+      "FastAPI service for agent evaluation interface"
+    ],
+    techStack: ["Python", "FastAPI", "Uvicorn"],
+    status: "Completed",
+    isFeatured: false,
+    isStartup: false,
+    demoUrl: "https://huggingface.co/spaces/mrhapile/llm-sanitizer",
+    githubUrl: "https://github.com/Aareevs/Openenv-LLMAI-Scalar"
   }
 ];
 
@@ -170,6 +205,15 @@ const MyProjects: React.FC<MyProjectsProps> = ({ onOpenProject }) => {
   const [filter, setFilter] = useState('All');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [searchQuery, setSearchQuery] = useState('');
+  const [expandedProjects, setExpandedProjects] = useState<number[]>([]);
+
+  const toggleDescription = (e: React.MouseEvent, id: number) => {
+    e.stopPropagation();
+    setExpandedProjects(prev => 
+      prev.includes(id) ? prev.filter(pId => pId !== id) : [...prev, id]
+    );
+  };
+
   
   const normalizedSearch = searchQuery.trim().toLowerCase();
   const matchesSearch = (project: (typeof PROJECTS)[number]): boolean => {
@@ -487,7 +531,11 @@ const MyProjects: React.FC<MyProjectsProps> = ({ onOpenProject }) => {
                       </span>
                     </div>
 
-                    <p className="text-gray-400 text-[13px] line-clamp-2 mb-4 leading-relaxed">
+                    <p 
+                      onClick={(e) => toggleDescription(e, project.id as number)}
+                      className={`text-gray-400 text-[13px] mb-4 leading-relaxed cursor-pointer transition-all duration-300 ${expandedProjects.includes(project.id as number) ? '' : 'line-clamp-2'}`}
+                      title={expandedProjects.includes(project.id as number) ? "Click to show less" : "Click to view full description"}
+                    >
                       {project.description}
                     </p>
 
@@ -542,7 +590,13 @@ const MyProjects: React.FC<MyProjectsProps> = ({ onOpenProject }) => {
                         {project.category}
                       </span>
                     </div>
-                    <p className="text-gray-400 text-[13px] line-clamp-2 mb-2">{project.description}</p>
+                    <p 
+                      onClick={(e) => toggleDescription(e, project.id as number)}
+                      className={`text-gray-400 text-[13px] mb-2 cursor-pointer transition-all duration-300 ${expandedProjects.includes(project.id as number) ? '' : 'line-clamp-2'}`}
+                      title={expandedProjects.includes(project.id as number) ? "Click to show less" : "Click to view full description"}
+                    >
+                      {project.description}
+                    </p>
                     <div className="flex flex-wrap gap-1.5">
                       {project.techStack.slice(0, 5).map((tech) => (
                         <span key={`${project.id}-${tech}`} className="bg-[#2c2c2e] border border-[#3a3a3c] text-gray-300 text-[11px] px-2 py-0.5 rounded">
@@ -601,6 +655,15 @@ const FreelanceProjects: React.FC<{
   searchQuery: string;
   viewMode: 'grid' | 'list';
 }> = ({ searchQuery, viewMode }) => {
+  const [expandedProjects, setExpandedProjects] = useState<string[]>([]);
+
+  const toggleDescription = (e: React.MouseEvent, id: string) => {
+    e.stopPropagation();
+    setExpandedProjects(prev => 
+      prev.includes(id) ? prev.filter(pId => pId !== id) : [...prev, id]
+    );
+  };
+
   const normalizedSearch = searchQuery.trim().toLowerCase();
   const filteredProjects = FREELANCE_PROJECTS.filter((project) => {
     if (!normalizedSearch) return true;
@@ -652,7 +715,13 @@ const FreelanceProjects: React.FC<{
                   </div>
                 </div>
 
-                <p className="text-gray-300 text-[13px] leading-relaxed mb-4">{project.description}</p>
+                <p 
+                  onClick={(e) => toggleDescription(e, project.id as string)}
+                  className={`text-gray-300 text-[13px] leading-relaxed mb-4 cursor-pointer transition-all duration-300 ${expandedProjects.includes(project.id as string) ? '' : 'line-clamp-2'}`}
+                  title={expandedProjects.includes(project.id as string) ? "Click to show less" : "Click to view full description"}
+                >
+                  {project.description}
+                </p>
 
                 <div className="flex flex-col gap-2 mb-4">
                   {project.highlights.map((item) => (
@@ -697,7 +766,13 @@ const FreelanceProjects: React.FC<{
                     Freelance
                   </span>
                 </div>
-                <p className="text-gray-400 text-[13px] line-clamp-2 mb-2">{project.description}</p>
+                <p 
+                  onClick={(e) => toggleDescription(e, project.id as string)}
+                  className={`text-gray-400 text-[13px] mb-2 cursor-pointer transition-all duration-300 ${expandedProjects.includes(project.id as string) ? '' : 'line-clamp-2'}`}
+                  title={expandedProjects.includes(project.id as string) ? "Click to show less" : "Click to view full description"}
+                >
+                  {project.description}
+                </p>
                 <div className="flex flex-wrap gap-1.5">
                   {project.techStack.slice(0, 5).map((tech) => (
                     <span key={`${project.id}-${tech}`} className="bg-[#2c2c2e] border border-[#3a3a3c] text-gray-300 text-[11px] px-2 py-0.5 rounded">

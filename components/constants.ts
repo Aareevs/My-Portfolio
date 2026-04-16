@@ -38,7 +38,7 @@ export const XP_ICONS = {
   contact: 'https://mitchivin.com/assets/gui/desktop/contact.webp',
   copilot: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/GitHub_Copilot_logo.svg',
   davinci: 'https://mitchivin.com/assets/gui/start-menu/vanity-apps/davinci.webp',
-  docker: 'https://icons.iconarchive.com/icons/papirus-team/papirus-apps/512/docker-icon.png',
+  docker: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
   figma: 'https://cdn.sanity.io/images/599r6htc/regionalized/46a76c802176eb17b04e12108de7e7e0f3736dc6-1024x1024.png',
   gemini: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/gemini-color.png',
   git: 'https://icons.iconarchive.com/icons/papirus-team/papirus-apps/512/git-icon.png',
