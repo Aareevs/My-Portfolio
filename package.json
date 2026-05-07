@@ -49,7 +49,7 @@
     "@prettier/plugin-xml": "^3.4.2",
     "@wasmer/wasm-transformer": "^0.12.0",
     "ani-cursor": "^0.0.5",
-    "browserfs": "https://github.com/jvilk/BrowserFS.git#a96aa2d",
+    "browserfs": "github:jvilk/BrowserFS#a96aa2d",
     "butterchurn-presets": "^3.0.0-beta.4",
     "canvas-confetti": "^1.9.3",
     "decode-ico": "^0.4.1",
@@ -82,7 +82,7 @@
     "resedit": "^2.0.3",
     "rtf.js": "^3.0.9",
     "styled-components": "^6.1.19",
-    "utif": "https://github.com/photopea/UTIF.js",
+    "utif": "github:photopea/UTIF.js",
     "wasi-js": "^1.7.3"
   },
   "devDependencies": {
