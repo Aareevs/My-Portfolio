@@ -22,7 +22,7 @@ const { alias, author, description } = PACKAGE_DATA;
 
 const Metadata: FC = () => {
   const [title, setTitle] = useState(alias);
-  const [favIcon, setFavIcon] = useState("");
+  const [favIcon, setFavIcon] = useState("/as-logo.png");
   const { readFile } = useFileSystem();
   const [customCursor, setCustomCursor] = useState("");
   const { cursor, foregroundId } = useSession();
@@ -34,9 +34,7 @@ const Metadata: FC = () => {
   } = process || {};
   const resetFaviconAndTitle = useCallback((): void => {
     setTitle(alias);
-    setFavIcon((currentFavicon) =>
-      currentFavicon ? "/as-logo.png" : currentFavicon
-    );
+    setFavIcon("/as-logo.png");
   }, []);
   const currentFavIcon = useMemo(
     () =>
@@ -121,7 +119,10 @@ const Metadata: FC = () => {
     <Head>
       <title>{title}</title>
       {currentFavIcon && (
-        <link href={currentFavIcon} rel="icon" type={favIconMimeType} />
+        <>
+          <link href={currentFavIcon} rel="icon" type={favIconMimeType} />
+          <link href={currentFavIcon} rel="shortcut icon" type={favIconMimeType} />
+        </>
       )}
       <meta
         content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, interactive-widget=resizes-content"

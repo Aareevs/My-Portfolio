@@ -377,7 +377,8 @@ export const PACKAGE_DATA = {
     npub: "",
     url: "https://github.com/Aareevs",
   },
-  description: "Aareev Srinivasan portfolio OS experience",
+  description:
+    "Aareev Srinivasan's portfolio OS with full-stack projects, design work, and interactive desktop-style experiences.",
   license: "MIT",
   version: "2.0.0",
 };

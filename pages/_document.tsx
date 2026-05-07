@@ -43,6 +43,8 @@ class Document extends NextDocument {
     return (
       <Html lang={DEFAULT_LOCALE}>
         <Head>
+          <link href="/as-logo.png" rel="icon" type="image/png" />
+          <link href="/as-logo.png" rel="shortcut icon" type="image/png" />
           <script src="https://cdn.tailwindcss.com" />
         </Head>
         <body>

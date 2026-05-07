@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Search, LayoutGrid, List, Star, Globe, Github, Monitor, Smartphone, Cpu, ExternalLink, Instagram } from 'lucide-react';
+import { Search, LayoutGrid, List, Star, Globe, Github, Monitor, Smartphone, Cpu, ExternalLink, Instagram, Users } from 'lucide-react';
 import { XP_ICONS } from '../../constants';
 import { type ComponentProcessProps } from "components/system/Apps/RenderComponent";
+import collaboratorsData from '../../../public/collaborators.json';
 
 const FREELANCE_PROJECTS = [
   {
@@ -212,6 +213,13 @@ const MyProjects: React.FC<MyProjectsProps> = ({ onOpenProject }) => {
     setExpandedProjects(prev => 
       prev.includes(id) ? prev.filter(pId => pId !== id) : [...prev, id]
     );
+  };
+
+  const getCollaborators = (url?: string) => {
+    if (!url) return null;
+    const match = url.match(/github\.com\/([^\/]+\/[^\/]+)/);
+    if (!match) return null;
+    return (collaboratorsData as Record<string, string[]>)[match[1]] || null;
   };
 
   
@@ -539,7 +547,7 @@ const MyProjects: React.FC<MyProjectsProps> = ({ onOpenProject }) => {
                       {project.description}
                     </p>
 
-                    <div className="flex flex-col gap-2 mb-6 mt-auto">
+                    <div className="flex flex-col gap-2 mb-4 mt-auto">
                       {project.architecture.map((item, idx) => (
                         <div key={idx} className="flex items-start gap-1.5 text-gray-400 text-[12px]">
                           <svg className="w-3.5 h-3.5 text-[#34d399] shrink-0 mt-[1px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -547,6 +555,30 @@ const MyProjects: React.FC<MyProjectsProps> = ({ onOpenProject }) => {
                         </div>
                       ))}
                     </div>
+
+                    {getCollaborators(project.githubUrl) && (
+                      <div className="flex items-center gap-2 mb-5 mt-2">
+                        <div className="flex items-center gap-1 text-[#8ab4ff] text-[11px] font-medium mr-1">
+                          <Users size={12} />
+                          Team:
+                        </div>
+                        <div className="flex -space-x-1.5 overflow-hidden py-1">
+                          {getCollaborators(project.githubUrl)?.map((c: string) => (
+                            <img
+                              key={c}
+                              className="inline-block h-6 w-6 rounded-full ring-2 ring-[#242426] object-cover bg-[#1c1c1e] hover:scale-110 hover:z-10 transition-transform cursor-pointer"
+                              src={`https://github.com/${c}.png?size=48`}
+                              alt={c}
+                              title={c}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                window.open(`https://github.com/${c}`, '_blank');
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-[#3a3a3c]">
                       {project.techStack.map((tech) => (
@@ -597,6 +629,31 @@ const MyProjects: React.FC<MyProjectsProps> = ({ onOpenProject }) => {
                     >
                       {project.description}
                     </p>
+                    
+                    {getCollaborators(project.githubUrl) && (
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="flex items-center gap-1 text-[#8ab4ff] text-[11px] font-medium mr-1">
+                          <Users size={12} />
+                          Team:
+                        </div>
+                        <div className="flex -space-x-1.5 overflow-hidden py-1">
+                          {getCollaborators(project.githubUrl)?.map((c: string) => (
+                            <img
+                              key={c}
+                              className="inline-block h-6 w-6 rounded-full ring-2 ring-[#242426] object-cover bg-[#1c1c1e] hover:scale-110 hover:z-10 transition-transform cursor-pointer"
+                              src={`https://github.com/${c}.png?size=48`}
+                              alt={c}
+                              title={c}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                window.open(`https://github.com/${c}`, '_blank');
+                              }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
                     <div className="flex flex-wrap gap-1.5">
                       {project.techStack.slice(0, 5).map((tech) => (
                         <span key={`${project.id}-${tech}`} className="bg-[#2c2c2e] border border-[#3a3a3c] text-gray-300 text-[11px] px-2 py-0.5 rounded">
